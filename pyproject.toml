@@ -38,7 +38,7 @@ line-length = 100
 indent-width = 4
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP"]
+select = ["E", "F", "I", "UP", "N"]
 
 [tool.ruff.format]
 quote-style = "double"
