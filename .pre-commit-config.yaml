@@ -22,15 +22,12 @@ repos:
         name: Check Python files format
         args: [ --check ]
         stages: [pre-commit]
--   repo: local
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.14.1
     hooks:
     -   id: mypy
         name: Check typing
-        entry: "mypy --strict"
-        language: python
-        language_version: python3.10
-        additional_dependencies: ["mypy==1.14.1"]
-        types: [python]
+        args: [ "--strict" ]
         stages: [pre-commit]
 -   repo: local
     hooks:
