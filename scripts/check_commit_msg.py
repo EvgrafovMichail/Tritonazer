@@ -10,7 +10,7 @@ def check_commit_message(
     min_message_len: int = 7,
 ) -> None:
     with open(path_to_file_with_message) as file:
-        commit_msg = file.read()
+        commit_msg = file.read().strip()
 
     if len(commit_msg) < min_message_len:
         print(f"commit message must contain at least {min_message_len} characters")
@@ -30,10 +30,7 @@ def check_commit_message(
         )
         sys.exit(ERROR_CODE)
 
-    print("success")
-
 
 if __name__ == "__main__":
-    print(sys.argv)
     check_commit_message(sys.argv[1])
     exit(0)
