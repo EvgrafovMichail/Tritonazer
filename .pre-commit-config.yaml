@@ -4,16 +4,22 @@ repos:
     rev: v3.2.0
     hooks:
     -   id: trailing-whitespace
+        stages: [pre-commit]
     -   id: end-of-file-fixer
+        stages: [pre-commit]
     -   id: check-yaml
+        stages: [pre-commit]
     -   id: check-added-large-files
+        stages: [pre-commit]
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.9.1
     hooks:
     -   id: ruff
         args: [ "--output-format", "pylint" ]
+        stages: [pre-commit]
     -   id: ruff-format
         args: [ --check ]
+        stages: [pre-commit]
 -   repo: local
     hooks:
     -   id: mypy
@@ -24,6 +30,7 @@ repos:
         additional_dependencies: ["mypy==1.14.1"]
         types: [python]
         verbose: true
+        stages: [pre-commit]
 -   repo: local
     hooks:
     -   id: commit-msg
@@ -31,4 +38,5 @@ repos:
         entry: "python ./scripts/check_commit_msg.py"
         language: system
         files: ^.*$
+        verbose: true
         stages: [commit-msg]
