@@ -40,6 +40,9 @@ indent-width = 4
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "N"]
 
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
