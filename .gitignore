@@ -1,5 +1,8 @@
 # Python binary files
 __pycache__
+.mypy_cache
+.pytest_cache
+.ruff_cache
 *.pyc
 
 # Python env data
