@@ -1,0 +1,59 @@
+@startuml entities
+
+skinparam style strictuml
+
+
+class TritonTensorConfig
+{
+    + name: str
+    + data_type: TritonDataTypes
+    + dims: Sequence[int]
+    + copy()
+}
+
+
+class TritonModelConfig
+{
+    + path: str
+    + name: str
+    + max_batch_size: int
+    + platform: str
+    + inputs: Iterator[TritonTensorConfig]
+    + outputs: Iterator[TritonTensorConfig]
+    + add_inputs(...)
+    + add_outputs(...)
+    + remove_inputs(...)
+    + remove_outputs(...)
+    + copy()
+}
+
+TritonTensorConfig -u-o TritonModelConfig
+
+class TritonModel
+{
+    + path: str
+    + name: str
+    + default_config: TritonModelConfig
+    + configs: Iterator[TritonModelConfig]
+    + versions: Iterator[int]
+    + add_configs(...)
+    + remove_configs(...)
+    + add_versions(...)
+    + remove_version(...)
+    + copy()
+}
+
+TritonModelConfig -u-o TritonModel
+
+class TritonModelRepo
+{
+    + path: str
+    + name: str
+    + __iter__()
+    + add_models(...)
+    + remove_model(...)
+}
+
+TritonModel -u-o TritonModelRepo
+
+@enduml
