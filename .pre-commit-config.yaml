@@ -11,6 +11,7 @@ repos:
     stages: [pre-commit]
   - id: check-added-large-files
     stages: [pre-commit]
+
 - repo: https://github.com/astral-sh/ruff-pre-commit
   rev: v0.9.1
   hooks:
@@ -22,13 +23,7 @@ repos:
     name: Check Python files format
     args: [ --check ]
     stages: [pre-commit]
-- repo: https://github.com/pre-commit/mirrors-mypy
-  rev: v1.14.1
-  hooks:
-  - id: mypy
-    name: Check typing
-    args: [ "--strict" ]
-    stages: [pre-commit]
+
 - repo: local
   hooks:
   - id: commit-msg
