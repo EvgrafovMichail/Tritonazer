@@ -43,11 +43,11 @@ class TritonTensorConfig:
     def dims(self, value: Sequence[int]) -> None:
         self._dims = self._get_valid_dims(value)
 
-    def copy(self, deep: bool = True) -> "TritonTensorConfig":
+    def copy(self) -> "TritonTensorConfig":
         return TritonTensorConfig(
             name=self._name,
             data_type=self._data_type,
-            dims=self.dims if deep else self._dims,
+            dims=self._dims,
         )
 
     @staticmethod
