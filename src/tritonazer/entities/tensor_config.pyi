@@ -19,7 +19,7 @@ class TritonTensorConfig:
     def __init__(
         self,
         name: str,
-        data_types: str,
+        data_type: str,
         dims: Sequence[int],
     ) -> None: ...
     def copy(self, deep: bool = True) -> TritonTensorConfig: ...
