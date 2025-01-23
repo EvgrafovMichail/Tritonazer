@@ -30,6 +30,6 @@ class TritonDataTypes(Enum):
 
         for member in cls.__members__.values():
             if dtype_name == member.value:
-                return TritonDataTypes(dtype_name)
+                return member
 
         return None
